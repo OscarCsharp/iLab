@@ -1,0 +1,57 @@
+<div class="bg-light">
+  <div class="container">
+
+<div class="py-5 text-center" >
+  <h2>ADDING A NEW BOOK</h2>
+</div>
+
+    <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
+      <div class="form-row">
+
+        <div class="form-group col-md-6">
+          <label>Title</label>
+          <input class="form-control" formControlName="Title">
+          <label class="text-danger"
+            *ngIf="service.formModel.get('Title').touched && service.formModel.get('Title').errors?.required">This
+            field is mandatory.</label>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label>Author</label>
+          <input class="form-control" formControlName="Author">
+          <label class="text-danger"
+            *ngIf="service.formModel.get('Author').touched && service.formModel.get('Author').errors?.required">This
+            field is mandatory.</label>
+        </div>
+
+        <div class="form-group col-md-9">
+          <label>Description</label>
+          <input type="text" class="form-control validNumber" formControlName="Description">
+          <label class="text-danger"
+          *ngIf="service.formModel.get('Description').touched && service.formModel.get('Description').errors?.required">This
+          field is mandatory.</label>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label>Published Year</label>
+          <input type="text"  bsDatepicker   class="form-control"   formControlName="Year">
+          <label class="text-danger"
+            *ngIf="service.formModel.get('Year').touched && service.formModel.get('Year').errors?.required">This
+            field is mandatory.</label>
+        </div>
+
+      </div>
+
+      <div class="text-center">
+        <div class="form-group col-md-8 offset-md-2">
+
+        <a routerLinkActive="active" routerLink="/" ><button type="button" class="btn btn-lg btn-danger mr-3" >Cancel</button></a>
+        <button type="submit" class="btn btn-lg btn-primary" [disabled]="!service.formModel.valid">Add</button>
+
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+

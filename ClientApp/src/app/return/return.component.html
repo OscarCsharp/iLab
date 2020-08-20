@@ -1,0 +1,55 @@
+
+<div class="bg-light">
+  <div class="container">
+
+<div class="py-5 text-center" >
+  <h2>RETURN BOOK</h2>
+</div>
+
+<form [formGroup]="service.returnForm" autocomplete="off" (submit)="onSubmit()">
+  <div class="form-row">
+
+    <div class="form-group col-md-2" >
+      <label>Book Id</label>
+      <select class="custom-select"  formControlName="BookId">
+        <option value="">Select Book</option>
+        <option *ngFor="let info of data" >
+          {{info.bookId}}
+        </option>
+      </select>
+      <label class="text-danger"
+        *ngIf="service.returnForm.get('BookId').touched && service.returnForm.get('BookId').errors?.required">This
+        field is mandatory.</label>
+    </div>
+
+    <div class="form-group col-md-4">
+      <label>Returned On</label>
+      <input class="form-control" bsDatepicker formControlName="ReturnedOn">
+      <label class="text-danger"
+        *ngIf="service.returnForm.get('ReturnedOn').touched && service.returnForm.get('ReturnedOn').errors?.required">This
+        field is mandatory.</label>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label>Returned By</label>
+      <input class="form-control" formControlName="ReturnedBy">
+      <label class="text-danger"
+        *ngIf="service.returnForm.get('ReturnedBy').touched && service.returnForm.get('ReturnedBy').errors?.required">This
+        field is mandatory.</label>
+    </div>
+
+  </div>
+
+  <div class="text-center">
+    <div class="form-group col-md-8 offset-md-2">
+
+    <a routerLinkActive="active" routerLink="/loanedbooks" ><button type="button" class="btn btn-lg btn-danger mr-3" >Cancel</button></a>
+    <button type="submit" class="btn btn-lg btn-primary" [disabled]="!service.returnForm.valid">Confirm</button>
+
+    </div>
+  </div>
+</form>
+
+</div>
+</div>
+

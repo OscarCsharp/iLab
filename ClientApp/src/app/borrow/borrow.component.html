@@ -1,0 +1,78 @@
+<div class="bg-light">
+  <div class="container">
+
+<div class="py-5 text-center" >
+  <h2>ADDING A NEW BOOK</h2>
+</div>
+
+    <form [formGroup]="service.bookForm" autocomplete="off" (submit)="onSubmit()">
+      <div class="form-row">
+
+        <div class="form-group col-md-2" >
+          <label>Book Id</label>
+          <select class="custom-select"  formControlName="BookId">
+            <option value="">Select Book</option>
+            <option *ngFor="let info of data" >
+              {{info.bookId}}
+            </option>
+          </select>
+          <label class="text-danger"
+            *ngIf="service.bookForm.get('BookId').touched && service.bookForm.get('BookId').errors?.required">This
+            field is mandatory.</label>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label>CurrentOwner</label>
+          <input class="form-control" formControlName="CurrentOwner">
+          <label class="text-danger"
+            *ngIf="service.bookForm.get('CurrentOwner').touched && service.bookForm.get('CurrentOwner').errors?.required">This
+            field is mandatory.</label>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label>CellNo</label>
+          <input class="form-control" formControlName="CellNo">
+          <label class="text-danger"
+            *ngIf="service.bookForm.get('CellNo').touched && service.bookForm.get('CellNo').errors?.required">This
+            field is mandatory.</label>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label>Email</label>
+          <input class="form-control" formControlName="Email">
+          <label class="text-danger"
+            *ngIf="service.bookForm.get('Email').touched && service.bookForm.get('Email').errors?.required">This
+            field is mandatory.</label>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label>Requested Date</label>
+          <input type="text"  bsDatepicker   class="form-control"   formControlName="RequestedDate">
+          <label class="text-danger"
+            *ngIf="service.bookForm.get('RequestedDate').touched && service.bookForm.get('RequestedDate').errors?.required">This
+            field is mandatory.</label>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label>Return Date</label>
+          <input type="text"  bsDatepicker   class="form-control"   formControlName="ReturnDate">
+          <label class="text-danger"
+            *ngIf="service.bookForm.get('ReturnDate').touched && service.bookForm.get('ReturnDate').errors?.required">This
+            field is mandatory.</label>
+        </div>
+
+      </div>
+
+      <div class="text-center">
+        <div class="form-group col-md-8 offset-md-2">
+
+        <a routerLinkActive="active" routerLink="/" ><button type="button" class="btn btn-lg btn-danger mr-3" >Cancel</button></a>
+        <button type="submit" class="btn btn-lg btn-primary" [disabled]="!service.bookForm.valid">Confirm</button>
+
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+

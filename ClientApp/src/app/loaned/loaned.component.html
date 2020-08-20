@@ -1,0 +1,54 @@
+
+<div class="bg-light">
+
+
+
+  <br><br>
+
+  <div class="float-right">
+    <a class="btn btn-primary mr-1" routerLinkActive="active" routerLink="/returnbook" role="button" >Return Book</a>
+  </div>
+  <br><br>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">BookingRecordId</th>
+        <th scope="col">BookId</th>
+        <th scope="col">CurrentOwner</th>
+        <th scope="col">Cell Number</th>
+        <th scope="col">Email</th>
+        <th scope="col">RequestedDate</th>
+        <th scope="col">ReturnDate</th>
+        <th scope="col">Status</th>
+        <th scope="col">ReturnedOn</th>
+        <th scope="col">ReturnedBy</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let info of data">
+
+        <td>{{ info.bookingRecordId }}</td>
+        <td>{{ info.bookId }}</td>
+        <td>{{ info.currentOwner}}</td>
+        <td>{{ info.cellNo}}</td>
+        <td>{{ info.email}}</td>
+        <td>{{ info.requestedDate}}</td>
+        <td>{{ info.returnDate}}</td>
+        <td>{{ info.status}}</td>
+        <td>{{ info.returnedOn}}</td>
+        <td>{{ info.returnedBy}}</td>
+     </tr>
+    </tbody>
+  </table>
+
+
+
+</div>
+
+
+
+
+
+
