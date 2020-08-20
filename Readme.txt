@@ -3,7 +3,7 @@
 1. Download and Install dotnet-sdk-2.2.207-win-x64
 2.Download and Install Visual Code
 3. Make sure you have the SQL Server installed along with MS Server Management Studio
-4. Open the API Project with Visual Code
+4. Open the API Project with Visual Code, go to the Json file to modify the sql server details and put yours 
 5. Go to View select terminal , select terminal then type "dotnet restore"
 6. Then do migration : dotnet ef migrations add InitialCreate, dotnet ef database update
 7. Run the API .. dotnet run
